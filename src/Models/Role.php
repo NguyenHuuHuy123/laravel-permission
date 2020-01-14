@@ -151,4 +151,24 @@ class Role extends Model implements RoleContract
 
         return $this->permissions->contains('id', $permission->id);
     }
+
+    /**
+     * Get role's childs
+     * 
+     * @return Collection
+     */
+    public function childs()
+    {
+        return $this->hasMany(config('permission.models.role'), 'parent_id');
+    }
+
+    /**
+     * Get full role's childs
+     * 
+     * @return Collection
+     */
+    public function fullChilds()
+    {
+        return $this->childs()->with('fullChilds');
+    }
 }
