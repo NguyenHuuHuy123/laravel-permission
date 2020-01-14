@@ -55,4 +55,18 @@ interface Role
      * @return bool
      */
     public function hasPermissionTo($permission): bool;
+
+    /**
+     * Get role's childs
+     * 
+     * @return Collection
+     */
+    public function childs();
+
+    /**
+     * Get full role's childs
+     * 
+     * @return Collection
+     */
+    public function fullChilds();
 }
