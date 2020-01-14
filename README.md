@@ -28,6 +28,11 @@ $user->givePermissionTo('edit articles');
 $user->assignRole('writer');
 
 $role->givePermissionTo('edit articles');
+
+// Multiple roles level
+$role->childs();
+
+$role->fullChilds();
 ```
 
 Because all permissions will be registered on [Laravel's gate](https://laravel.com/docs/authorization), you can check if a user has a permission with Laravel's default `can` function:
