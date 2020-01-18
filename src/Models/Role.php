@@ -151,6 +151,13 @@ class Role extends Model implements RoleContract
 
         return $this->permissions->contains('id', $permission->id);
     }
+    
+    /**
+     * Get role's parent
+     */
+    public function parent(){
+        return $this->belongsTo(config('permission.models.role'), 'parent_id');
+    }
 
     /**
      * Get role's childs
